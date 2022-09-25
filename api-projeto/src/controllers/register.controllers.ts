@@ -1,30 +1,48 @@
 import { Request, Response } from "express";
-import listRegisterService from "../services/listRegister.services";
-import createRegisterService from "../services/register.services";
+import deleteRegisterService from "../services/register/deleteRegister.service";
+import listRegisterService from "../services/register/listRegister.services";
+import createRegisterService from "../services/register/register.services";
+import { instanceToPlain } from "class-transformer";
+import registerUpdateService from "../services/register/registerUpdate.service";
+import { IRegister, IRegisterUpdate } from "../interfaces/registers";
 
-const createRegisterController = (req: Request, res: Response) => {
-  try {
-    const { nome, email, telefone, data_registro } = req.body;
-    const newRegister = createRegisterService({
-      nome,
-      email,
-      telefone,
-      data_registro,
-    });
-    return res.json(newRegister);
-  } catch (error) {
-    if (error instanceof Error) {
-      return res.status(400).json({
-        message: error.message,
-      });
-    }
-  }
+const createRegisterController = async (req: Request, res: Response) => {
+  const { nome, password, email, telefone, data_registro } = req.body;
+  const newRegister = await createRegisterService({
+    nome,
+    password,
+    email,
+    telefone,
+    data_registro,
+  });
+  return res.json(instanceToPlain(newRegister));
 };
 
-const listRegisterController = (req: Request, res: Response) => {
-  const register = listRegisterService();
+const listRegisterController = async (req: Request, res: Response) => {
+  const register = await listRegisterService();
 
-  return res.json(register);
+  return res.json(instanceToPlain(register));
 };
 
-export { createRegisterController, listRegisterController };
+const deleteRegsiterController = async (req: Request, res: Response) => {
+  const registerId = req.params.registerId;
+  await deleteRegisterService(registerId);
+
+  return res.status(200).send();
+};
+
+const updateRegisterController = async (req: Request, res: Response) => {
+  const id = req.params.registerId;
+  const { nome, email, telefone }: IRegisterUpdate = req.body;
+
+  const register = await registerUpdateService({ id, nome, email, telefone });
+
+  return res.status(200).send(register);
+};
+
+export {
+  createRegisterController,
+  listRegisterController,
+  deleteRegsiterController,
+  updateRegisterController,
+};
