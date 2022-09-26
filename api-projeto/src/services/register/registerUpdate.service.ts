@@ -12,7 +12,7 @@ const registerUpdateService = async ({
   const registerRepository = AppDataSource.getRepository(Register);
 
   const register = await registerRepository.findOneBy({ id });
-
+  console.log(register);
   if (!register) {
     throw new AppError("Registro não encontrado.", 404);
   }

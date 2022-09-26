@@ -37,7 +37,7 @@ const createRegisterSessionService = async ({
     {
       id: register.id,
     },
-    process.env.SECRET_KEY as string,
+    process.env.JWT_SECRET as string,
     {
       expiresIn: "24h",
     }

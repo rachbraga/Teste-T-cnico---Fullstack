@@ -14,11 +14,12 @@ const ensureAuthMiddleware = (
       message: "Acesso negado.",
     });
   }
+
   const splitToken = token.split(" ");
 
   jwt.verify(
     splitToken[1],
-    process.env.SECRET_KEY as string,
+    process.env.JWT_SECRET as string,
     (error: any, decoded: any) => {
       if (error) {
         return res.status(401).json({

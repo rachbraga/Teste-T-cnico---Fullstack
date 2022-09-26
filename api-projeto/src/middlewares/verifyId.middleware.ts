@@ -10,6 +10,7 @@ const verifyIdMiddleware = async (
   const registerRepository = AppDataSource.getRepository(Register);
 
   const register = req.register;
+  console.log(register);
 
   const { registerId } = req.params;
 
