@@ -20,7 +20,8 @@
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "build": "tsc",
     "typeorm": "typeorm-ts-node-commonjs",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "start": "node dist/src/server.js"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
