@@ -26,7 +26,7 @@ class Register {
   @Column()
   data_registro: string;
 
-  @OneToMany(() => Associate, (associate) => associate.register, {
+  @OneToMany((type) => Associate, (associate) => associate.register, {
     onDelete: "CASCADE",
     eager: true,
   })

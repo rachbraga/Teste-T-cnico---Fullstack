@@ -18,7 +18,7 @@ class Associate {
   @Column()
   ativo: boolean;
 
-  @ManyToOne(() => Register, (register) => register.associate, {
+  @ManyToOne((type) => Register, (register) => register.associate, {
     onDelete: "CASCADE",
   })
   register: Register;
