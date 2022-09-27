@@ -13,7 +13,7 @@ class Associate {
   email: string;
 
   @Column()
-  telefone: number;
+  telefone: string;
 
   @Column()
   ativo: boolean;

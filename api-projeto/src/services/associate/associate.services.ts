@@ -7,7 +7,7 @@ import { Register } from "../../entities/register.entity";
 const createAssociateService = async (
   nome: string,
   email: string,
-  telefone: number,
+  telefone: string,
   registerId: string
 ) => {
   const associateRepository = AppDataSource.getRepository(Associate);
