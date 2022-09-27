@@ -13,7 +13,7 @@ describe("Create an register", () => {
     nome: "test",
     email: "test@email.com",
     password: "12345",
-    telefone: 99999999,
+    telefone: "99999999",
     data_registro: "2022-09-24",
   };
 
@@ -21,7 +21,7 @@ describe("Create an register", () => {
     nome: "test2",
     email: "test2@email.com",
     password: "12345",
-    telefone: 99999999,
+    telefone: "99999999",
     data_registro: "2022-09-24",
   };
 

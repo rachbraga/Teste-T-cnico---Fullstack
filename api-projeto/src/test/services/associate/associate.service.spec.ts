@@ -10,7 +10,7 @@ import { AppError } from "../../../errors/AppError";
 const testassociate = {
   nome: "testName",
   email: "testBreed",
-  telefone: 41992373880,
+  telefone: "41992373880",
   registerId: uuidv4(),
 };
 

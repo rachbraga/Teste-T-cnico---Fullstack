@@ -12,14 +12,14 @@ describe("Teste para metodo PATCH em /registers/:registerId", () => {
     nome: "Teste Kenzie",
     email: "teste@kenzie.com",
     password: "123456!",
-    telefone: 419928587558,
+    telefone: "419928587558",
     data_registro: "2022-09-25",
   };
 
   let testRegister2 = {
     nome: "Teste2 Kenzie",
     email: "teste2@kenzie.com",
-    telefone: 419923738880,
+    telefone: "419923738880",
   };
 
   let response1: any;
