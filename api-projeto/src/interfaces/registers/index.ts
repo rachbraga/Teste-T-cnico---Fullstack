@@ -2,7 +2,7 @@ export interface IRegisterRequest {
   nome: string;
   password: string;
   email: string;
-  telefone: number;
+  telefone: string;
   data_registro: string;
 }
 
@@ -11,7 +11,7 @@ export interface IRegister {
   password: string;
   nome: string;
   email: string;
-  telefone: number;
+  telefone: string;
   data_registro: string;
   ativo: boolean;
 }
@@ -20,7 +20,7 @@ export interface IRegisterUpdate {
   id: string;
   nome: string;
   email: string;
-  telefone: number;
+  telefone: string;
 }
 
 export interface IRegisterLogin {

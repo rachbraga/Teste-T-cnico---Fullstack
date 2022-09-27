@@ -18,7 +18,7 @@ class Register {
   email: string;
 
   @Column()
-  telefone: number;
+  telefone: string;
 
   @Column()
   ativo: boolean;
