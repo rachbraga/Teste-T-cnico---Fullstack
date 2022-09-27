@@ -1,11 +1,11 @@
-import { Request, Response } from "express";
+import { Request, response, Response } from "express";
 import createRegisterSessionService from "../services/sessions/createSessionRegister.service";
 
 const createRegisterSessionController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const token = await createRegisterSessionService({ email, password });
+  const response = await createRegisterSessionService({ email, password });
 
-  return res.json({ token });
+  return res.status(200).json(response);
 };
 
 export default createRegisterSessionController;

@@ -10,7 +10,7 @@ import bcryptjs from "bcryptjs";
 const createRegisterSessionService = async ({
   email,
   password,
-}: IRegisterLogin): Promise<string> => {
+}: IRegisterLogin) => {
   const registerRepository = AppDataSource.getRepository(Register);
 
   const register = await registerRepository.findOne({
@@ -43,7 +43,7 @@ const createRegisterSessionService = async ({
     }
   );
 
-  return token;
+  return { token: token, registerId: register.id };
 };
 
 export default createRegisterSessionService;
