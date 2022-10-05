@@ -7,8 +7,7 @@ const listAssociateService = async (id: string) => {
 
   const registers = await registerRepository.find();
   const register = registers.find((user) => user.id === id);
-  console.log(register);
-  console.log(register?.associate);
+
 
   return register?.associate;
 };
