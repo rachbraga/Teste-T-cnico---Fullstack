@@ -1,14 +1,16 @@
 import AppDataSource from "../../data-source";
 import { Associate } from "../../entities/associate.entity";
+import { Register } from "../../entities/register.entity";
 
-const listAssociateService = async (): Promise<Associate[]> => {
-  const associateRepository = AppDataSource.getRepository(Associate);
-  const associates = await associateRepository.find();
-  const associateActive = associates.filter(
-    (associate) => associate.ativo === true
-  );
+const listAssociateService = async (id: string) => {
+  const registerRepository = AppDataSource.getRepository(Register);
 
-  return associateActive;
+  const registers = await registerRepository.find();
+  const register = registers.find((user) => user.id === id);
+  console.log(register);
+  console.log(register?.associate);
+
+  return register?.associate;
 };
 
 export default listAssociateService;

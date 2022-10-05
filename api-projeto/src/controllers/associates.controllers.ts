@@ -8,18 +8,15 @@ import associateUpdateService from "../services/associate/updateAssociate.servic
 import { instanceToPlain } from "class-transformer";
 
 const createAssociateController = async (req: Request, res: Response) => {
-  const { nome, email, telefone, registerId } = req.body;
-  const newAssociate = await createAssociateService(
-    nome,
-    email,
-    telefone,
-    registerId
-  );
+  const { id } = req.params;
+  const { nome, email, telefone } = req.body;
+  const newAssociate = await createAssociateService(nome, email, telefone, id);
   return res.json(instanceToPlain(newAssociate));
 };
 
 const listAssociateController = async (req: Request, res: Response) => {
-  const associates = await listAssociateService();
+  const id = req.register.id;
+  const associates = await listAssociateService(id);
   return res.json(instanceToPlain(associates));
 };
 

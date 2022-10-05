@@ -35,7 +35,7 @@ const createAssociateService = async (
     email,
     telefone,
     ativo: true,
-    register,
+    register: register,
   });
 
   await associateRepository.save(associate);
