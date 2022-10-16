@@ -1,5 +1,4 @@
 import AppDataSource from "../../data-source";
-import { Associate } from "../../entities/associate.entity";
 import { Register } from "../../entities/register.entity";
 
 const listAssociateService = async (id: string) => {
